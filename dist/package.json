@@ -1,0 +1,17 @@
+{
+		"version": "1.0.0.0",
+		"author": {"name":"usama","email":"m.usama@ziepie.com"},
+		"resources": [
+			{
+				"resourceId": "rId0",
+				"sourceType": 5,
+				"file": "resources/practiceBA8B93128F294885B62BE9FA88A1B276.pbiviz.json"
+			}
+		],
+		"visual": {"name":"practice","displayName":"practice","guid":"practiceBA8B93128F294885B62BE9FA88A1B276","visualClassName":"Visual","version":"1.0.0.0","description":"usama3030","supportUrl":"usama","gitHubUrl":""},
+		"metadata": {
+			"pbivizjson": {
+				"resourceId": "rId0"
+			}
+		}
+	}
