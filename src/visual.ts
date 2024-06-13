@@ -34,36 +34,65 @@ import App from "./Components/App";
 import VisualConstructorOptions = powerbi.extensibility.visual.VisualConstructorOptions;
 import VisualUpdateOptions = powerbi.extensibility.visual.VisualUpdateOptions;
 import IVisual = powerbi.extensibility.visual.IVisual;
+import IVisualHost = powerbi.extensibility.visual.IVisualHost;
 
 import { VisualFormattingSettingsModel } from "./settings";
 import { createElement } from "react";
-import { update } from "./Components/useApp";
+import { update } from "./Components/Hooks/useApp";
 
 export class Visual implements IVisual {
   private target: HTMLElement;
   private updateCount: number;
   private textNode: Text;
+  private host: IVisualHost;
   private formattingSettings: VisualFormattingSettingsModel;
   private formattingSettingsService: FormattingSettingsService;
 
   constructor(options: VisualConstructorOptions) {
+    this.host = options.host;
     reactDom.render(createElement(App), options.element);
+    console.log("Constructor calls!");
   }
 
   public update(options: VisualUpdateOptions) {
-    this.formattingSettings =
-      this.formattingSettingsService.populateFormattingSettingsModel(
-        VisualFormattingSettingsModel,
-        options.dataViews[0]
-      );
+    // this.formattingSettings =
+    //   this.formattingSettingsService.populateFormattingSettingsModel(
+    //     VisualFormattingSettingsModel,
+    //     options.dataViews[0]
+    //   );
 
-    update([]);
+    console.log("options", options);
+    console.log("host", this.host);
+
+    // update([]);
+    update({ data: options.dataViews, host: this.host });
 
     // console.log("Visual update", options);
     // if (this.textNode) {
     //   this.textNode.textContent = (this.updateCount++).toString();
     // }
   }
+
+  //for fetching more data then 30000
+  // public update(options: VisualUpdateOptions) {
+  //   // Check if there's more data to fetch
+  //   if (options.dataViews && options.dataViews[0].metadata.segment) {
+  //     this.fetchMoreData();
+  //   }
+
+  //   // Call your render visual method with the available data
+  //   this.renderVisual(options.dataViews[0]);
+  // }
+
+  // private fetchMoreData() {
+  //   // Logic to request more data from Power BI
+  //   this.host.fetchMoreData();
+  // }
+
+  // private renderVisual(dataView: DataView) {
+  //   // Efficient rendering logic for large datasets
+  //   // ...
+  // }
 
   /**
    * Returns properties pane formatting model content hierarchies, properties and latest formatting values, Then populate properties pane.
