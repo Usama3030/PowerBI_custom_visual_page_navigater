@@ -5,8 +5,8 @@ import VisualConstructorOptions = powerbiVisualsApi.extensibility.visual.VisualC
 import DialogConstructorOptions = powerbiVisualsApi.extensibility.visual.DialogConstructorOptions;
 var powerbiKey: any = "powerbi";
 var powerbi: any = window[powerbiKey];
-var practiceBA8B93128F294885B62BE9FA88A1B276: IVisualPlugin = {
-    name: 'practiceBA8B93128F294885B62BE9FA88A1B276',
+var practiceBA8B93128F294885B62BE9FA88A1B276_DEBUG: IVisualPlugin = {
+    name: 'practiceBA8B93128F294885B62BE9FA88A1B276_DEBUG',
     displayName: 'practice',
     class: 'Visual',
     apiVersion: '5.3.0',
@@ -27,6 +27,6 @@ var practiceBA8B93128F294885B62BE9FA88A1B276: IVisualPlugin = {
 if (typeof powerbi !== "undefined") {
     powerbi.visuals = powerbi.visuals || {};
     powerbi.visuals.plugins = powerbi.visuals.plugins || {};
-    powerbi.visuals.plugins["practiceBA8B93128F294885B62BE9FA88A1B276"] = practiceBA8B93128F294885B62BE9FA88A1B276;
+    powerbi.visuals.plugins["practiceBA8B93128F294885B62BE9FA88A1B276_DEBUG"] = practiceBA8B93128F294885B62BE9FA88A1B276_DEBUG;
 }
-export default practiceBA8B93128F294885B62BE9FA88A1B276;
+export default practiceBA8B93128F294885B62BE9FA88A1B276_DEBUG;
